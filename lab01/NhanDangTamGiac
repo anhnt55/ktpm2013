@@ -1,0 +1,37 @@
+import math
+
+ep = pow(10,-9)
+
+a = float(raw_input("Nhap so a: "))
+b = float(raw_input("Nhap so b: "))
+c = float(raw_input("Nhap so c: "))
+
+def checkTriangle(a, b, c):
+    if((a == 0)| (b == 0)|(c == 0)):
+        print 'Khong phai tam giac!'
+        print ep
+    else:
+        if((a+b>c)&(b+c>a)&(a+c>b)):
+            print 'Ep = ',ep
+            if((a == b)&(b == c)):
+                print 'Tam giac deu'
+            else:
+                if((a == b)|(b == c)|(a == c)):
+                    if((math.fabs(a*a+b*b-c*c)<= ep)|(math.fabs(a*a+c*c-b*b)<= ep)|(math.fabs(c*c+b*b-a*a)<= ep)):
+                        print 'Tam giac vuong can'
+                    else:
+                        print 'Tam giac can'
+                else:
+                    if((math.fabs(a*a+b*b-c*c)<= ep)|(math.fabs(a*a+c*c-b*b)<= ep)|(math.fabs(c*c+b*b-a*a)<= ep)):
+                        print 'Tam giac vuong'
+                    else:
+                        print 'Tam giac thuong.'
+        else:
+            print 'Khong phai tam giac!'
+
+if ((a < 0)|(b < 0)|(c < 0)|(a > pow(2,32)-1)|(c > pow(2,32)-1)|(c > pow(2,32)-1)):
+    print 'Error!Memory overflow.'
+else:
+    print 'OK'
+    checkTriangle(a, b, c)
+
