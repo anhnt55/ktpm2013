@@ -2,7 +2,7 @@ import math
 
 def detect_triangle(a, b, c):
     ep = pow(10,-9)
-    if((a <= 0)|(b <= 0)|(c <= 0)|(a > pow(2,32)-1)|(b > pow(2,32)-1)|(c > pow(2,32)-1)):
+    if((a < 0)|(b < 0)|(c < 0)|(a > (pow(2,31)-1))|(b > (pow(2,31)-1))|(c > (pow(2,31)-1))):
         return "Vuot qua mien gia tri"
     else:
         if((a+b>c)&(b+c>a)&(a+c>b)):
@@ -21,5 +21,4 @@ def detect_triangle(a, b, c):
                         return "Tam giac thuong"
         else:
             return "Khong phai tam giac"
-
 
